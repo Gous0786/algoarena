@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import '../styles/DoctorProfilePage.css';
 
+const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000';
+
 const DoctorProfilePage = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -27,7 +29,7 @@ const DoctorProfilePage = () => {
     e.preventDefault();
     console.log('Submitting doctor profile:', formData);
     try {
-      const response = await fetch('http://localhost:5000/api/doctors', {
+      const response = await fetch(`${backendUrl}/api/doctors`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

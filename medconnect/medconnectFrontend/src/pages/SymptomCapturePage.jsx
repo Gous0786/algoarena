@@ -2,6 +2,8 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/SymptomCapturePage.css';
 
+const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000';
+
 const SymptomCapturePage = () => {
   const [isRecording, setIsRecording] = useState(false);
   const [transcript, setTranscript] = useState('');
@@ -84,7 +86,7 @@ const SymptomCapturePage = () => {
       });
 
       // Make the API call to backend
-      const response = await fetch('http://localhost:5000/api/symptoms', {
+      const response = await fetch(`${backendUrl}/api/symptoms`, {
         method: 'POST',
         body: formData,
         headers: {
@@ -222,4 +224,4 @@ const SymptomCapturePage = () => {
   );
 };
 
-export default SymptomCapturePage; 
+export default SymptomCapturePage;
