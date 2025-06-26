@@ -34,14 +34,14 @@ const upload = multer({
 
 // Cors config
 app.use(cors({
-    origin: ['http://localhost:3000', 'http://localhost:5001'],
+    origin: [process.env.BACKEND_URL, 'http://localhost:5001'],
     credentials: true
 }));
 
 
 app.use(cors({
     origin: function(origin, callback) {
-        const allowedOrigins = ['http://localhost:3000', 'http://localhost:5001'];
+        const allowedOrigins = [process.env.BACKEND_URL, 'http://localhost:5001'];
         if (!origin || allowedOrigins.indexOf(origin) !== -1) {
             callback(null, true);
         } else {
