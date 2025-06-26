@@ -4,7 +4,6 @@ import '../styles/DoctorRecommendationsPage.css';
 import DoctorCard from '../components/DoctorCard';
 
 const DoctorRecommendationsPage = () => {
-  const navigate = useNavigate();
   const [selectedSpecialty, setSelectedSpecialty] = useState('all');
   const [sortBy, setSortBy] = useState('experience'); // Default sort by experience
 
